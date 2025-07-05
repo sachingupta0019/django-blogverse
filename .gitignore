@@ -2,7 +2,7 @@
 django_blog_env/
 
 # Media files (user uploads)
-media/
+BlogVerse/media
 
 # Images folder
 images/
@@ -21,3 +21,7 @@ __pycache__/
 # VSCode or IDE-specific files (optional)
 .vscode/
 .idea/
+
+
+# DB
+BlogVerse/db.sqlite3
