@@ -1,5 +1,23 @@
+# Virtual environment
+django_blog_env/
 
+# Media files (user uploads)
+media/
 
-django_blog_env
-media
-images
+# Images folder
+images/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Django migrations (optional)
+**/migrations/
+!**/migrations/__init__.py
+
+# VSCode or IDE-specific files (optional)
+.vscode/
+.idea/
