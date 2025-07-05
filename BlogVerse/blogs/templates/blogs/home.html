@@ -1,0 +1,52 @@
+{% extends "blogs/base.html" %}
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% comment %} {% block msg %}
+    {% if messages %}
+        {% for message in messages %}
+           <span class="alert alert-{{message.tags}} alert-dismissible fade show">{{message}}</span> 
+        {% endfor %}
+    {% endif %}
+{% endblock msg %} {% endcomment %}
+
+{% block content %}
+
+   <div class="row shadow-sm mb-4 bg-warning bg-gradient bg-opacity-75">
+        <div class="col-9 d-flex my-3 justify-content-end">
+            <h3 class="mx-auto shadow-green">BlogVerse</h3>
+        </div>
+        <div class="col-3 d-flex my-3 justify-content-end">
+            <a href="{% url 'add-post' %}"><input type="submit" value="New Post" class="btn btn-primary"></a>
+        </div>
+    </div>
+
+    
+    {% for blog in blogs %}
+        <div class="col-md-4 mb-3 mh-100">
+        <div class="card" style="width: 18rem;">
+            <img src="{{blog.image.url}}" class="card-img-top" style="height:15rem;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{blog.title}}</h5>
+                <p class="card-text">{{blog.excerpt}}</p>
+                <!-- Each tag in a separate badge -->
+                <div class="mb-2 ">
+                    {% for post_tag in blog.tag|split_by_comma %}
+                        <span class="badge text-bg-info">{{ post_tag }}</span>
+                    {% endfor %}
+                </div>
+                <p class="card-text">Author : {{blog.author}}</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated {{blog.updated_at}} ago</small></p>
+                <a href="{% url 'post' blog.slug %}" class="btn btn-primary">View</a>
+
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+
+
+
+{% endblock content %}
