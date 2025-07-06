@@ -54,8 +54,12 @@ def delete_post(request, slug):
 
 # User Dashboard
 def dashboard(request):
-    blogs = BlogModel.objects.all()
-    return render(request, "blogs/dashboard.html",{"blogs":blogs})
+    if request.user.is_authenticated:
+        blogs = BlogModel.objects.all()
+        return render(request, "blogs/dashboard.html",{"blogs":blogs})
+    else:
+        return HttpResponseRedirect("/user/login")
+
 
 # About-US
 def About_Us(request): 

@@ -5,7 +5,20 @@
 {% block title %}Post{% endblock title %}
 
 {% block content %}
-<div class="container py-5">
+
+<div class="row">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Blog</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+    </ol>
+  </nav>
+</div>
+
+
+
+<div class="container py-3">
   <div class="card bg-white mb-4">
     <div class="card-body">
       <h2 class="card-title text-primary">{{ post.title }}</h2>
