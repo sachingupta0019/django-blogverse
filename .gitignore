@@ -22,8 +22,6 @@ __pycache__/
 .vscode/
 .idea/
 
-# Ignore Readme FIle
-README.md
 
 # DB
 BlogVerse/db.sqlite3
